@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Stylesheets -->
+    @Styles.Render("~/StyleSheets/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+        <!-- Check for Zepto support, load jQuery if necessary -->
+<script>
+    document.write('<script src=/Scripts/js/vendor/'
+      + ('__proto__' in {} ? 'zepto' : 'jquery')
+      + '.js><\/script>');
+</script>
+    <!-- Pull the minified foundation javascript version -->
+    <script src="/Scripts/js/foundation.min.js"></script>
+    <!-- Call the scripts -->
+      <script>
+          $(document).foundation();
+  </script>
+
+</body>
+</html>
